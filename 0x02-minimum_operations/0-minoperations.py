@@ -19,8 +19,8 @@ def calcPrimes(n: int) -> List[int]:
             n //= i
         else:
             i += 1
-    if i > 1:
-        prime_fac.append(i)
+    if n > 1:
+        prime_fac.append(n)
     return prime_fac
 
 
@@ -32,4 +32,5 @@ def minOperations(n: int) -> int:
     if n <= 1:
         return 0
     prime_fac = calcPrimes(n)
+    # print(prime_fac)
     return sum(prime_fac)
