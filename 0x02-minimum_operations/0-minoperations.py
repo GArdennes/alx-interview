@@ -1,36 +1,35 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
+'''The minimum operations coding challenge.
 '''
-0-minoperations
-'''
-from typing import List
 
 
-def calcPrimes(n: int) -> List[int]:
+def minOperations(n):
+    '''Computes the fewest number of operations needed to result
+    in exactly n H characters.
     '''
-    Calculates the list of prime factors of n.
-    '''
-    prime_fac = []
-    if n <= 1:
-        return prime_fac
-    i = 2
-    while i * i <= n:
-        if n % i == 0:
-            prime_fac.append(i)
-            n //= i
-        else:
-            i += 1
-    if n > 1:
-        prime_fac.append(n)
-    return prime_fac
-
-
-def minOperations(n: int) -> int:
-    '''
-    Calculates the fewest number of operations needed
-    to result in exactly n H characters in the file.
-    '''
-    if n <= 1:
+    if not isinstance(n, int):
         return 0
-    prime_fac = calcPrimes(n)
-    # print(prime_fac)
-    return sum(prime_fac)
+    ops_count = 0
+    clipboard = 0
+    done = 1
+    # print('H', end='')
+    while done < n:
+        if clipboard == 0:
+            # init (the first copy all and paste)
+            clipboard = done
+            done += clipboard
+            ops_count += 2
+            # print('-(11)->{}'.format('H' * done), end='')
+        elif n - done > 0 and (n - done) % done == 0:
+            # copy all and paste
+            clipboard = done
+            done += clipboard
+            ops_count += 2
+            # print('-(11)->{}'.format('H' * done), end='')
+        elif clipboard > 0:
+            # paste
+            done += clipboard
+            ops_count += 1
+            # print('-(01)->{}'.format('H' * done), end='')
+    # print('')
+    return ops_count
