@@ -4,7 +4,6 @@ Stats script
 """
 
 import sys
-from typing import Dict
 
 
 def main():
@@ -37,7 +36,7 @@ def main():
         print_statistics(total_size, status_count)
 
 
-def print_statistics(total_size: int, status_count: Dict[int, int]) -> None:
+def print_statistics(total_size, status_count):
     """
     Method that prints the statistics
     """
