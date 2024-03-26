@@ -13,26 +13,25 @@ def main():
     """
     total_size = 0
     status_count = {}
+    line_count = 0
 
     try:
         for line in sys.stdin:
-            try:
-                ip, _, _, _, status_code, file_size = line.split()
-                file_size = int(file_size)
-                total_size += file_size
+            line_count += 1
+            ip, _, _, _, _, _, _, s_cde, fl_s = line.rstrip(
+                    ).split()
+            fl_s = int(fl_s)
+            total_size += fl_s
 
-                if status_code.isdigit():
-                    status_code = int(status_code)
-                    status_count[status_code] = status_count.get(
-                            status_code, 0
-                            ) + 1
+            if s_cde.isdigit():
+                s_cde = int(s_cde)
+                status_count[s_cde] = status_count.get(
+                        s_cde, 0
+                        ) + 1
 
-                if len(status_count) == 10:
-                    print_statistics(total_size, status_count)
-                    status_count.clear()
-
-            except ValueError:
-                continue
+            if line_count % 10 == 0:
+                print_statistics(total_size, status_count)
+                status_count.clear()
 
     except KeyboardInterrupt:
         print_statistics(total_size, status_count)
