@@ -14,6 +14,45 @@ For the “0x04. UTF-8 Validation” project, you will need to apply your knowle
 
 By studying these concepts and utilizing the resources provided, you will be equipped to tackle the UTF-8 validation project, effectively applying bitwise operations and logical reasoning to determine the validity of UTF-8 encoded data.
 
+## Learning
+UTF-8 is a text encoding standard used for electronic communication. It stands for Unicode Transformation Format - 8 bit. The UTF-8 is capable of encoding code points to one to four bytes depending on the value of the code point.
+
+| First code point | Last code point | Byte 1 | Byte 2 | Byte 3 | Byte 4 |
+| - - | - - | - - | - - | - - | - - |
+| U + 0000 | U + 007F | 0xxxxxxx | – | – | – |
+| U + 0080 | U + 07FF | 110xxxxx | 10xxxxxx | – | – |
+| U + 0800 | U + FFFF | 1110xxxx | 10xxxxxx | 10xxxxxx | – |
+| U + 010000 | U + 10FFFF | 11110xxx | 10xxxxxx | 10xxxxxx | 10xxxxxx |
+
+The first 128 code points (ASCII) which is U+ 0000 to U+007F need 1 byte. This corresponds to languages that use the latin alphabet like English, French and Spanish.
+
+The next 1920 code points need two bytes to code that is from U+0000 to U+07FF. This corresponds to the languages that use the latin script but with accents and special characters like Greek, Coptic, Cyrillic, Armenian, Hebrew and Arabic.
+
+Three bytes are required for languages like Chinese, Japanese and Korean. And finally four bytes for emoji representations and mathematical notations. 
+
+**Example 1:**
+
+**Input:** data = [197,130,1]
+
+**Output:** true
+
+**Explanation:** data represents the octet sequence: 11000101 10000010 00000001.
+It is a valid utf-8 encoding for a 2-bytes character followed by a 1-byte character.
+
+---
+
+Example 2:
+**Input:** data = [235,140,4]
+
+**Output:** false
+
+**Explanation:** data represented the octet sequence: 11101011 10001100 00000100.
+The first 3 bits are all one's and the 4th bit is 0 means it is a 3-bytes character.
+The next byte is a continuation byte which starts with 10 and that's correct.
+But the second continuation byte does not start with 10, so it is invalid.
+
+---
+
 ## Requirements
 - Allowed editors: vi, vim, emacs
 - All your files will be interpreted on Ubuntu 20.04 LTS using `python3`.
