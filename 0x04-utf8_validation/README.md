@@ -17,12 +17,12 @@ By studying these concepts and utilizing the resources provided, you will be equ
 ## Learning
 UTF-8 is a text encoding standard used for electronic communication. It stands for Unicode Transformation Format - 8 bit. The UTF-8 is capable of encoding code points to one to four bytes depending on the value of the code point.
 
-| First code point | Last code point | Byte 1 | Byte 2 | Byte 3 | Byte 4 |
-| - - | - - | - - | - - | - - | - - |
-| U + 0000 | U + 007F | 0xxxxxxx | – | – | – |
-| U + 0080 | U + 07FF | 110xxxxx | 10xxxxxx | – | – |
-| U + 0800 | U + FFFF | 1110xxxx | 10xxxxxx | 10xxxxxx | – |
-| U + 010000 | U + 10FFFF | 11110xxx | 10xxxxxx | 10xxxxxx | 10xxxxxx |
+| First code point | Last code point | Byte 1   | Byte 2   | Byte 3   | Byte 4   |
+| ---------------- | --------------- | -------- | -------- | -------- | -------- |
+| U + 0000         | U + 007F        | 0xxxxxxx |          |          |          |
+| U + 0080         | U + 07FF        | 110xxxxx | 10xxxxxx |          |          |
+| U + 0800         | U + FFFF        | 1110xxxx | 10xxxxxx | 10xxxxxx |          |
+| U + 010000       | U + 10FFFF      | 11110xxx | 10xxxxxx | 10xxxxxx | 10xxxxxx |
 
 The first 128 code points (ASCII) which is U+ 0000 to U+007F need 1 byte. This corresponds to languages that use the latin alphabet like English, French and Spanish.
 
@@ -41,7 +41,8 @@ It is a valid utf-8 encoding for a 2-bytes character followed by a 1-byte charac
 
 ---
 
-Example 2:
+**Example 2:**
+
 **Input:** data = [235,140,4]
 
 **Output:** false
