@@ -17,7 +17,7 @@ candidates = [10, 1, 2, 7, 6, 1, 5], target = 8
     [2, 6]
 ]
 
-**Example 1:**
+**Example 2:**
 > **Input:**
 candidates = [2, 5, 2, 1, 2], target = 5
 > **Output:**
