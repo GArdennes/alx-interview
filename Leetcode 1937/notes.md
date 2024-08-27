@@ -63,7 +63,7 @@ new_dp[j] = points[i][j] + max(left[j], right[j])
 
 The new dp array for the columns keeps track of the points we would earn.
 
-## Example walkthrough correction
+## Example walkthrough
 
 **Input:** 
 points = [[1, 2, 3], [1, 5, 1], [3, 1, 1]]
