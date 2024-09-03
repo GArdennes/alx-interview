@@ -1,4 +1,4 @@
-## [Ugly Number II]()
+## [Ugly Number II](https://leetcode.com/problems/ugly-number-ii/description/)
 
 An ugly number is a positive integer whose prime factors are limited to 2, 3 and 5.
 
